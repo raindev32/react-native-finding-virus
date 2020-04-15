@@ -14,83 +14,23 @@ import { createBottomTabNavigator } from 'react-navigation-tabs'
 import color from 'theme/color'
 
 import TabBarItem from 'screens/components/TabBarItem'
-// import ForgotPasswordScreen from 'screens/ForgotPassword'
-// import HelpScreen from 'screens/Help'
-// import HelpDetailScreen from 'screens/HelpDetail'
-
-// Auth
-// import Login from 'screens/auth/Login'
-// import Register from 'screens/auth/Register'
-// import ResetPassword from 'screens/auth/ResetPassword'
-// import ChangePassword from 'screens/auth/ChangePassword'
-
-// User
-// import EditProfile from 'screens/User/EditProfile'
-// import Setting from 'screens/User/Setting'
-// import Address from 'screens/User/Address'
-// import AddAddress from 'screens/User/AddAddress'
-// import Profile from 'screens/User/Profile'
-// import Notification from 'screens/User/Notification'
-// import SettingNotification from 'screens/User/SettingNotification'
-
-// Location
-// import Location from 'screens/Location'
-// import ChooseStore from 'screens/location/ChooseStore'
+// import MainBarItem from 'screens/components/MainBarItem'
 
 // Content
 import Home from 'screens/Content/Home'
-// import PromoDetail from 'screens/Content/PromoDetail'
 
-// MEMBER
-// import MainMember from 'screens/Member/MemberMain'
-// import MemberAdd from 'screens/Member/MemberAdd'
+// Search
+import Search from 'screens/Search'
 
-// MEMBER DETAIL
-// import MemberDetail from 'screens/MemberDetail'
+// Statics
+import Statics from 'screens/Statics'
 
-// Organizer
-// import OrganizerMain from 'screens/Organizer/OrganizerMain'
-// import OrganizerCreate from 'screens/Organizer/OrganizerCreate'
-// import OrganizerJoined from 'screens/Organizer/OrganizerJoined'
-// import OrganizerEdit from 'screens/Organizer/OrganizerEdit'
-// import OrganizerContact from 'screens/Organizer/Contact'
-// import OrganizerProfile from 'screens/Organizer/public'
+// Login
+import Login from 'screens/Login'
 
-// Participant
-// import ParticipantAsset from 'screens/Participant/Asset'
-
-// Local Transaction
-// import Search from 'screens/Search'
-// import BundleDetail from 'screens/LocalTransaction/BundleDetail'
-// import Event from 'screens/Event/EventMain'
-// import EventCreate from 'screens/Event/EventCreate'
-// import EventDetail from 'screens/Event/EventDetail'
-// import EventReport from 'screens/Event/EventReport'
-// import EventJoin from 'screens/Event/EventJoin'
-
-// import EventCheckin from 'screens/Event/EventCheckin'
-// import EventTicket from 'screens/Event/EventTicket'
-
-// MONITORING
-// import Asset from 'screens/Asset/AssetMain'
-// import QrCodePage from 'screens/QrCodePage'
-// import TicketJoined from 'screens/Ticket/TicketJoined'
-// import TicketList from 'screens/Ticket/TicketList'
-// import TicketCheckout from 'screens/Ticket/TicketCheckout'
-
-// import Checkout from 'screens/Ticket/Checkout'
-
-// import CartDetail from 'screens/LocalTransaction/CartDetail'
-// import PhotoDetail from 'screens/LocalTransaction/PhotoDetail'
-// import PhotoList from 'screens/LocalTransaction/PhotoList'
-// import VerificationPage from './screens/VerificationPage'
-
-// // Landing Page
-// import LandingPageScreen from './screens/LandingPage'
-
-// import BecomeCommittee from './screens/Committee/BecomeCommittee'
-
-// import AuthLoadingScreen from './root/AuthLoadingScreen'
+// Corona Virus Portal
+import PortalDetail from 'screens/CoronaVirus/Portal/Detail'
+import GlobalCases from 'screens/CoronaVirus/GlobalCases'
 
 const styles = StyleSheet.create({
   container: {
@@ -134,80 +74,6 @@ const BottomTabNavigatorConfig = {
   }
 }
 
-// Bagian ini sudah login.
-const Main = createBottomTabNavigator({
-  Home: {
-    screen: createStackNavigator({
-      Home
-    }),
-    navigationOptions: () => {
-      return ({
-        tabBarLabel: 'Home',
-        tabBarIcon: ({ focused, tintColor }) => (
-          <TabBarItem
-            focused={focused}
-            tintColor={tintColor}
-            iconName="home"
-          />
-        )
-      })
-    }
-  },
-  Search: {
-    screen: createStackNavigator({
-      Home
-    }),
-    navigationOptions: () => {
-      return ({
-        tabBarLabel: 'Search',
-        tabBarIcon: ({ focused, tintColor }) => (
-          <TabBarItem
-            focused={focused}
-            tintColor={tintColor}
-            iconName="search1"
-            type="AntDesign"
-          />
-        )
-      })
-    }
-  },
-  Event: {
-    screen: createStackNavigator({
-      Home
-    }),
-    navigationOptions: () => {
-      return ({
-        tabBarLabel: 'Event',
-        tabBarIcon: ({ focused, tintColor }) => (
-          <TabBarItem
-            focused={focused}
-            tintColor={tintColor}
-            iconName="calendar"
-          />
-        )
-      })
-    }
-  },
-  Profile: {
-    screen: createStackNavigator({
-      Home
-    }),
-    navigationOptions: () => {
-      return ({
-        tabBarLabel: 'Profile',
-        tabBarIcon: ({ focused, tintColor }) => (
-          <TabBarItem
-            focused={focused}
-            tintColor={tintColor}
-            iconName="user"
-            type="AntDesign"
-          />
-        )
-      })
-    }
-  }
-}, BottomTabNavigatorConfig)
-
 // Bagian ini membutuhkan Login First.
 const MainAuth = createBottomTabNavigator({
   Home: {
@@ -229,7 +95,7 @@ const MainAuth = createBottomTabNavigator({
   },
   Search: {
     screen: createStackNavigator({
-      Home
+      Search
     }),
     navigationOptions: () => {
       return ({
@@ -245,23 +111,28 @@ const MainAuth = createBottomTabNavigator({
       })
     }
   },
-  Event: {
-    screen: Home,
+  Statics: {
+    screen: createStackNavigator({
+      Statics
+    }),
     navigationOptions: () => {
       return ({
-        tabBarLabel: 'Event',
+        tabBarLabel: 'Statics',
         tabBarIcon: ({ focused, tintColor }) => (
           <TabBarItem
             focused={focused}
             tintColor={tintColor}
-            iconName="calendar"
+            iconType="Ionicons"
+            iconName="md-stats"
           />
         )
       })
     }
   },
   Login: {
-    screen: Home,
+    screen: createStackNavigator({
+      Login
+    }),
     navigationOptions: () => {
       return ({
         tabBarLabel: 'Login',
@@ -278,141 +149,14 @@ const MainAuth = createBottomTabNavigator({
   }
 }, BottomTabNavigatorConfig)
 
-const RequireAuth = createStackNavigator(
+const MainStack = createStackNavigator(
   {
-    Main
-    // AddAddress: {
-    //   screen: AddAddress
-    // },
-    // Help: {
-    //   screen: HelpScreen
-    // },
-    // HelpDetail: {
-    //   screen: HelpDetailScreen
-    // },
-    // EditPhoto: {
-    //   screen: EditPhotoScreen
-    // },
-    // VerificationPage,
-    // ChangePassword,
-    // Notification,
-    // SettingNotification,
-    // Profile,
-    // Search,
-    // Event,
-    // TicketJoined,
-    // TicketList,
-    // TicketCheckout,
-    // Checkout: {
-    //   screen: Checkout,
-    //   navigationOptions: {
-    //     headerLeft: null,
-    //     headerStyle: {
-    //       height: 0,
-    //       paddingTop: 0
-    //     }
-    //   }
-    // },
-    // EventCreate,
-    // EventDetail: {
-    //   screen: EventDetail,
-    //   headerMode: 'none',
-    //   navigationOptions: {
-    //     headerVisible: false
-    //   }
-    // },
-    // EventJoin,
-    // QrCodePage,
-    // EventCheckin: {
-    //   screen: EventCheckin,
-    //   navigationOptions: {
-    //     headerLeft: null,
-    //     headerStyle: {
-    //       height: 0,
-    //       paddingTop: 0
-    //     }
-    //   }
-    // },
-    // EditProfile,
-    // EventReport,
-    // Asset,
-    // OrganizerContact,
-    // OrganizerProfile,
-    // OrganizerEdit,
-    // // Setting,
-    // OrganizerJoined,
-    // OrganizerCreate,
-    // OrganizerMain,
-    // MainMember,
-    // MemberAdd,
-    // MemberDetail,
-    // Location,
-    // // ListOrganizer
-    // BecomeCommittee,
-    // EventTicket: {
-    //   screen: EventTicket,
-    //   navigationOptions: {
-    //     headerLeft: null,
-    //     headerStyle: {
-    //       height: 0,
-    //       paddingTop: 0
-    //     }
-    //   }
-    // }
-    // Checkout,
-    // Address,
-    // Bundle,
-    // BundleDetail,
-    // Cart,
-    // CartDetail,
-    // PhotoList,
-    // PhotoDetail,
-    // PromoDetail,
-    // ChooseStore
-  },
-  {
-    initialRouteName: 'Main',
-    navigationOptions: {
-      headerMode: 'float',
-      headerTitleAllowFontScaling: false,
-      headerTintColor: 'color.primaryColor',
-      headerStyle: {
-        height: 0,
-        paddingTop: 0,
-        color: color.textIcons,
-        backgroundColor: color.primaryColor
-      }
-    }
-  }
-)
-
-const LoginStack = createStackNavigator(
-  {
-    Main: MainAuth
-    // ForgotPassword: {
-    //   screen: ForgotPasswordScreen
-    // },
-    // VerificationPage,
-    // Register,
-    // ResetPassword,
-    // Notification,
-    // SettingNotification,
-    // EventDetail: {
-    //   screen: EventDetail,
-    //   headerMode: 'none',
-    //   navigationOptions: {
-    //     headerVisible: false
-    //   }
-    // },
-    // EventReport,
-    // OrganizerContact,
-    // OrganizerProfile,
-    // Location,
-    // ParticipantAsset
-    // PromoDetail,
-    // ChooseStore: {
-    //   screen: Login
-    // }
+    Main: MainAuth,
+    PortalDetail,
+    GlobalCases,
+    Search,
+    Statics,
+    Login
   },
   {
     initialRouteName: 'Main',
@@ -438,8 +182,7 @@ const AppNavigator = createSwitchNavigator(
   {
     // LandingPage,
     // AuthLoading: AuthLoadingScreen,
-    App: RequireAuth,
-    Auth: LoginStack
+    App: MainStack
   },
   {
     initialRouteName: 'App'

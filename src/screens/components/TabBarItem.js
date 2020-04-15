@@ -6,8 +6,13 @@ const TabBarItem = ({
   tintColor,
   style = { color: tintColor },
   iconName,
-  type = 'FontAwesome'
+  type
 }) => <Icon style={style} name={iconName} type={type} />
+
+TabBarItem.defaultPropTypes = {
+  type: 'FontAwesome'
+}
+
 TabBarItem.propTypes = {
   tintColor: PropTypes.string,
   iconName: PropTypes.string.isRequired,

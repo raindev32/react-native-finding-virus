@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
-
 import color from 'theme/color'
 
+import GlobalCases from 'components/Global'
 import Container from './Container'
 
-class Home extends Component {
-  static navigationOptions = () => {
-    // let navigation = this.props
-    let headerTitle = null
+class Detail extends Component {
+  static navigationOptions = (navigation) => {
+    let { params } = navigation.navigation.state
+    let headerTitle = params && params.headTitle ? params.headTitle : null
     let headerTitleStyle = {
       fontSize: 20,
       color: color.textIcons,
@@ -18,7 +18,7 @@ class Home extends Component {
       paddingVertical: 0,
       paddingHorizontal: 10
     }
-    // let headerRight = <MyNotification navigation={navigation} count={50} />
+    let headerRight = (<GlobalCases navigation={navigation.navigation} />)
     let headerTintColor = color.textIcons
     let headerStyle = {
       elevation: 0,
@@ -36,7 +36,7 @@ class Home extends Component {
       headerTitleStyle,
       headerTintColor,
       headerBackTitle,
-      // headerRight,
+      headerRight,
       headerLayoutPreset: 'center'
     })
   }
@@ -47,4 +47,4 @@ class Home extends Component {
     )
   }
 }
-export default Home
+export default Detail

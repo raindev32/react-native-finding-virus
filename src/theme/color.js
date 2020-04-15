@@ -21,7 +21,7 @@ const statusColor = (text) => {
 }
 
 export default {
-  primaryColor: '#E67E22',
+  primaryColor: '#4C4E6A',
   primaryColorTransparent: 'rgba(230, 126, 34, 0.8)',
   darkPrimaryColor: '#333333',
   lightPrimaryColor: '#836E6A',
@@ -40,7 +40,7 @@ export default {
   successColor: '#1AB385',
   highlightColor: '#FF5722',
   whiteCream: '#FCFCFC',
-  starColor: '#FEBF35',
+  starColor: '#E67E22',
   goldColor: '#ffd700',
   cloudColor: '#e9f1f4',
   creamColor: '#FFEDCF',
